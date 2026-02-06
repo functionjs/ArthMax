@@ -11,13 +11,13 @@ export const refinePrompt = async (systemPrompt: string, userPrompt: string): Pr
     2. Analyze a "User Prompt" for logical gaps, inaccuracies, and structural weaknesses.
     3. Generate a "Refined User Prompt" that adheres to the new system template.
     
-    The User Prompt involves a specific C++ problem: finding one artifact phone (outlier) in a stream of identical phones using only basic variables (no data structures like arrays).
+    The User Prompt involves a specific programming problem.
     
     Potential inaccuracies to look for:
-    - Input size not defined.
-    - Termination condition not defined.
-    - Memory constraints (O(1) space).
-    - Ambiguity about the "correct" weight.
+    - Input sizee.
+    - Termination condition.
+    - Memory constraints.
+    - Ambiguity.
   `;
 
   const response = await ai.models.generateContent({
@@ -35,26 +35,26 @@ export const refinePrompt = async (systemPrompt: string, userPrompt: string): Pr
       responseSchema: {
         type: Type.OBJECT,
         properties: {
-          conciseSystemPrompt: {
-            type: Type.STRING,
-            description: "A more concise and effective version of the system template instructions."
-          },
-          inaccuracies: {
-            type: Type.ARRAY,
-            items: { type: Type.STRING },
-            description: "List of shortcomings or inaccuracies found in the user prompt."
-          },
-          refinedUserPrompt: {
-            type: Type.STRING,
-            description: "The improved user prompt following the new structural requirements."
-          }
+                     conciseSystemPrompt: {
+                       type: Type.STRING,
+                       description: "A more concise and effective version of the system template instructions."
+                     },
+                     inaccuracies: {
+                       type: Type.ARRAY,
+                       items: { type: Type.STRING },
+                       description: "List of shortcomings or inaccuracies found in the user prompt."
+                     },
+                     refinedUserPrompt: {
+                         type: Type.STRING,
+                         description: "The improved user prompt following the new structural requirements."
+                       }
         },
         required: ["conciseSystemPrompt", "inaccuracies", "refinedUserPrompt"]
       }
     }
   });
+   const text = response.text;
+    if (!text) throw new Error("No response from Gemini");
 
-  const text = response.text;
-  if (!text) throw new Error("No response from Gemini");
-  return JSON.parse(text.trim());
+       return JSON.parse(text.trim());
 };

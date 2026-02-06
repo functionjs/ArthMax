@@ -3,37 +3,43 @@ import React from 'react';
 import { RefinementResult } from '../types';
 import { CheckCircle2, AlertTriangle, FileCode, Wand2, Copy } from 'lucide-react';
 
-interface Props {
-  result: RefinementResult;
-}
+    interface Props {
+      result: RefinementResult;
+    }
 
-export const RefinementResultView: React.FC<Props> = ({ result }) => {
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    // Simple feedback could be added here
-  };
+export const RefinementResultView: React.FC<Props> = 
+            ({ result }) => {
+                             const copyToClipboard = (text: string) => {
+                                                                        navigator.clipboard.writeText(text);
+                                                                         // Simple feedback could be added here
+                                                                       };
 
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
       {/* Concise System Prompt Section */}
       <div className="bg-white rounded-2xl shadow-md border border-indigo-100 overflow-hidden">
         <div className="bg-indigo-50/50 px-6 py-4 flex items-center justify-between border-b border-indigo-100">
+
           <div className="flex items-center gap-2">
             <Wand2 className="w-5 h-5 text-indigo-600" />
             <h3 className="font-bold text-indigo-900">Refined System Instructions</h3>
           </div>
+
           <button 
             onClick={() => copyToClipboard(result.conciseSystemPrompt)}
             className="p-1.5 hover:bg-white rounded-md transition-colors text-indigo-400 hover:text-indigo-600"
           >
             <Copy className="w-4 h-4" />
           </button>
+
         </div>
+
         <div className="p-6">
           <pre className="text-sm code-font bg-slate-50 p-4 rounded-xl border border-slate-100 overflow-x-auto whitespace-pre-wrap">
             {result.conciseSystemPrompt}
           </pre>
         </div>
+        
       </div>
 
       {/* Analysis Section */}
