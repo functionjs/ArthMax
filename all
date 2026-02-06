@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Add all files (including new ones)
+git add .
+
+ # Commit with a message
+ git commit -m "message"
+
+  # Push to origin main
+  git push origin main
