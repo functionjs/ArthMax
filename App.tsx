@@ -20,26 +20,27 @@ const INITIAL_SYSTEM_PROMPT = `<system>
 </system>`;
 
 const INITIAL_USER_PROMPT = `<prompt>
-# Programming with Variables as Simplest Data Structure 
+# Prompt concise name
 
 ## Problem Legend
-You are an employee of Nova Poshta, a large batch of new mobile phones of the same model Xiaomi arrives at your place. You suspect that one of the phones is artifactual (for example, there is no battery), because this has happened before. We have no light for various reasons, but you have a stylus and a diamond ruler. You need to find the artifactual phone in less than a minute, or say that all the phones are fine.
+
 
 ## Subproblem 1
-You need to present an algorithm for solving this problem using a very limited number of variables without using any datastructures!
+
 ## Subproblem 2
-You need to present an algorithm for solving this problem using a very limited number of variables and the least number of operations without using any datastructures!
+
+## ...
 
 ## Task 1.
-Write the simplest C++ program with console input and output that solves the problem - "Is there 1 artifact phone in the batch of phones?"
+Write the simplest program with console input and output that solves the problem 
 
-I want a simplest C++ program that takes input weights of phones, checks if there is exactly one artifact phone with a different weight from others, and outputs "Yes" if there is exactly one artifact and "No" otherwise.
+
 
 ## Requirements
 ### Requirement 1
-Build two programs (AI can be used) on onecompiler.com hosting
+Build  programs (AI can be used) on  hosting
 ### Requirement 2
-Use only variables in programs (no other data structures can be used)!
+Use only ... but ...
 
 ### Input-output examples
 ... (various examples) ...
